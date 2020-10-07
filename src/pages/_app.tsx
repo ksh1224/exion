@@ -2,14 +2,21 @@ import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from 'src/lib/apolloCient';
 import { AppProps } from 'next/app';
-import 'styles/globals.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import 'styles/globals.scss';
+import { VisibleContextProvider } from 'src/hooks/useModalVisibleContext';
+import LogInModal from 'src/components/LogInModal';
 
 function App({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} />
+      <VisibleContextProvider>
+        <CssBaseline />
+        <Component {...pageProps} />
+        <LogInModal />
+      </VisibleContextProvider>
     </ApolloProvider>
   );
 }

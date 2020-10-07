@@ -1,0 +1,42 @@
+.banner {
+  display: flex;
+  width: 100%;
+  height: 530px;
+  background-color: #4a379033;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner img {
+  opacity: 0.9;
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+.banner text {
+  position: absolute;
+  transform: translate(-85%, -65%);
+  width: 360px;
+  height: 88px;
+  font-family: NotoSansKR;
+  font-size: 32.9px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+.banner button {
+  position: absolute;
+  transform: translate(-549%, 67%);
+  width: 80.7px;
+  height: 32.4px;
+  border: solid 1px #ffffff;
+  font-family: NotoSansKR;
+  font-size: 15.7px;
+  font-weight: bold;
+  color: #ffffff;
+}

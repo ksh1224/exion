@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     "no-undef": "off",
     "react/jsx-props-no-spreading": "off",
+    "max-len": "off",
     // "class-methods-use-this": "off",
     // "@typescript-eslint/no-unused-vars": ["warn"],
     // "@typescript-eslint/quotes": "off",
