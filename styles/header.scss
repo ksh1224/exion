@@ -1,0 +1,188 @@
+input::placeholder{
+  font-size: 16px;
+}
+
+header {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  display: flex;
+  background-color: white;
+  padding: 0 5% 0 5%;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15) !important;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+}
+
+.headerRight {
+  display: flex;
+}
+
+.logo {
+  align-items: center;
+  // text-align: center;
+  justify-content: center;
+  width: 100px;
+}
+
+.logo text {
+  width: 86px;
+  height: 27px;
+  font-family: NotoSansKR;
+  font-size: 27.8px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4b3790;
+}
+
+.center {
+  display: flex;
+  min-width: 135px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabs button {
+  padding: 12px;
+  font-family: NotoSansKR;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #020202;
+  height: 51px;
+}
+
+.selectPoint {
+  z-index: -1;
+  position: relative;
+  bottom: 10px;
+  margin: auto;
+  width: 100%;
+  height: 7px;
+  border-radius: 7px;
+  background-color: #51339669;
+}
+
+.tabs button:hover .selectPointOff{
+  z-index: -1;
+  position: relative;
+  bottom: 10px;
+  margin: auto;
+  width: 50%;
+  height: 7px;
+  border-radius: 7px;
+  background-color: #72727269;
+}
+
+.profile {
+  min-width: 115px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+
+}
+.profile img {
+  width: 30.3px;
+  height: 30.3px;
+  object-fit: contain;
+}
+.profile text {
+  padding-left: 10px;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0e1111;
+}
+
+.searchWrap {
+  margin-left: 30px;
+  max-width: 720px;
+  min-width: 480px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: white;
+  opacity: 0.99;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: solid 2px #6666;
+}
+
+.inputWrap {
+  height: 60px;
+  width: 50%;
+}
+
+.input {
+  width: 250px;
+  height: 25px;
+  border: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 16px;
+}
+
+.startDate {
+  height: 60px;
+  width: 25%;
+}
+
+.endDate {
+  height: 60px;
+  width: 25%;
+}
+
+.breakLineWrap {
+  width: 1px;
+  height: 60px;
+  align-items: center;
+  display: flex;
+}
+
+.breakLine {
+  width: 1px;
+  height: 40px;
+  background-color: rgb(185, 185, 185);
+}
+
+.searchButton {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #503396;
+  border: none;
+}
+
+.searchButton img {
+  position: relative;
+  bottom: -3px;
+  right: -3px;
+}
+
+.searchButton:hover {
+  background-color: #6841c4;
+}
