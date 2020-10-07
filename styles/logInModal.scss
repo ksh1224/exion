@@ -1,0 +1,109 @@
+.modal {
+  height: 100%;
+  max-width: 581.2px;
+  max-height: 745.7px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  outline: none;
+  position: relative;
+  margin: 0px auto;
+  overflow: scroll;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.closeButton {
+  position: absolute;
+  top: 34.3px;
+  right: 30.4px;
+}
+
+.modal h1 {
+  margin: 0 auto;
+  padding: 105px 0 93px 0;
+  text-align: center;
+  font-family: NotoSansKR;
+  font-size: 40px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #503396;
+}
+
+.inputWrap text {
+  padding: 0 0 12.7px 108px;
+  display: block;
+  font-family: NotoSansKR;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #606060;
+}
+
+.inputWrap input {
+  margin: 0 0 36px 90px;
+  width: 403.5px;
+  height: 48.4px;
+  border-radius: 22.6px;
+  border: solid 1px #e0e1e9;
+  padding-left: 20px;
+  font-size: 14px;
+}
+.inputWrap input::placeholder {
+  color: rgba(105, 105, 105, 0.658);
+  font-size: 14px;
+}
+
+.logInButton {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 23px;
+  width: 271.7px;
+  height: 67.9px;
+  border-radius: 31.7px;
+  background-color: #503396;
+}
+
+.logInButton text {
+  font-family: NotoSansKR;
+  font-size: 23px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.signOnButton {
+  margin: auto;
+  margin-top: 23px;
+  display: flex;
+  justify-content: center;
+  width: 271.7px;
+  height: 67.9px;
+  border-radius: 31.7px;
+  background-color: #0000;
+  border: #0000;
+}
+
+.signOnButton text {
+  font-family: NotoSansKR;
+  font-size: 19px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #503396;
+}
