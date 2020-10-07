@@ -1,0 +1,29 @@
+.container {
+  padding-top: 110px;
+}
+
+.footerWrap {
+  width: '100%';
+  padding: 0 5%;
+  height: 144px;
+  background-color: #dad8d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerWrap .left {
+  direction: rtl;
+}
+
+.footerWrap text, button {
+  display: block;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+}
