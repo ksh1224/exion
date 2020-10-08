@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import styles from 'styles/signOn.scss';
+import styles from 'styles/signOn.module.scss';
 import Layout from 'src/components/Layout';
 import Header from 'src/components/Header';
 import Input from 'src/components/Input';

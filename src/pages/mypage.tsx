@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from 'styles/Home.scss';
+import styles from 'styles/Home.module.scss';
 import Layout from 'src/components/Layout';
 // import { initializeApollo } from '../lib/apolloCient';
 

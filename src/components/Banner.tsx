@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Query, ShootingConnection } from 'src/types';
-import styles from 'styles/banner.scss';
+import styles from 'styles/banner.module.scss';
 
 export default function Banner() {
   return (

@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import useWindowSize from 'src/hooks/useWindowSize';
 import { VisibleContext } from 'src/hooks/useModalVisibleContext';
 import { MAIN, SCHEDULE } from 'src/constant';
-import styles from 'styles/header.scss';
+import styles from 'styles/header.module.scss';
 import Calendar from './Calendar';
 
 export default function Header() {

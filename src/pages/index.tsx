@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from 'styles/Home.scss';
+import styles from 'styles/Home.module.scss';
 import Layout from 'src/components/Layout';
 import Banner from 'src/components/Banner';
 import ShootingList, { shootingsFragment } from 'src/components/ShootingList';
