@@ -1,21 +1,3 @@
-input::placeholder{
-  font-size: 16px;
-}
-
-header {
-  width: 100%;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  display: flex;
-  background-color: white;
-  padding: 0 5% 0 5%;
-  align-items: center;
-  justify-content: space-between;
-  height: 110px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15) !important;
-}
-
 .headerContent {
   display: flex;
   align-items: center;

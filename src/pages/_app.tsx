@@ -4,6 +4,7 @@ import { useApollo } from 'src/lib/apolloCient';
 import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'styles/globals.scss';
+
 import { VisibleContextProvider } from 'src/hooks/useModalVisibleContext';
 import LogInModal from 'src/components/LogInModal';
 

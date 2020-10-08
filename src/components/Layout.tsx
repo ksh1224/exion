@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import styles from 'styles/layout.scss';
+import styles from 'styles/layout.module.scss';
 import Header from './Header';
 
 export const siteTitle = 'Exion';
@@ -31,14 +31,14 @@ export default function Layout({ children, home }: LayoutType) {
       </div>
       <div className={styles.footerWrap}>
         <div>
-          <text>서울 서초구 사임당로 175 갤럭시타워 7층 704호</text>
-          <text>support@unli.co.kr</text>
-          <text>070 7743 0505</text>
+          <text className={styles.text}>서울 서초구 사임당로 175 갤럭시타워 7층 704호</text>
+          <text className={styles.text}>support@unli.co.kr</text>
+          <text className={styles.text}>070 7743 0505</text>
         </div>
         <div className={styles.left}>
-          <button type="button">회사소개</button>
-          <button type="button">개인정보 처리 방침</button>
-          <button type="button">이용약관</button>
+          <button className={styles.button} type="button">회사소개</button>
+          <button className={styles.button} type="button">개인정보 처리 방침</button>
+          <button className={styles.button} type="button">이용약관</button>
         </div>
       </div>
     </>

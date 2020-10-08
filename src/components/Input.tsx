@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from 'styles/input.scss';
+import styles from 'styles/input.module.scss';
 
 const current = new Date();
 

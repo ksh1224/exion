@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Query, ShootingConnection } from 'src/types';
-import styles from 'styles/shootingList.scss';
+import styles from 'styles/shootingList.module.scss';
 
 export const shootingsFragment = gql`
 query Shootings($first: Int!, $after: String, ) {

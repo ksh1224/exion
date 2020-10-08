@@ -5,7 +5,7 @@ import { Modal } from '@material-ui/core';
 import { VisibleContext } from 'src/hooks/useModalVisibleContext';
 import { useRouter } from 'next/router';
 import { SIGNON } from 'src/constant';
-import styles from 'styles/logInModal.scss';
+import styles from 'styles/logInModal.module.scss';
 
 export default function LogInModal() {
   const [visible, setVisible] = useContext(VisibleContext);
