@@ -2,11 +2,46 @@
 ### Do not make changes to this file directly
 
 
+input AddShootingInput {
+  content: String
+  gender: Gender
+  headCount: Int
+  isDyeing: Boolean
+  isGlasses: Boolean
+  isTattoo: Boolean
+  maxHeight: Int
+  maxWeight: Int
+  meetingPlace: String
+  meetingTime: Date
+  minHeight: Int
+  minWeight: Int
+  producer: String
+  shootingEndAt: Date
+  shootingStartAt: Date
+  title: String
+  wage: Int
+}
+
+type Admin {
+  id: Int!
+  password: String
+  userName: String
+}
+
 scalar Auth
 
 type AuthPayload {
-  token: String!
-  user: User!
+  token: String
+  user: User
+}
+
+type AuthPayloadAdmin {
+  admin: Admin
+  token: String
+}
+
+type BatchPayload {
+  count: Int
 }
 
 type Bookmark {
@@ -24,12 +59,15 @@ scalar DateTime
 scalar Gender
 
 type Mutation {
-  addBookmark(shootingId: Int!): Bookmark!
-  addSchedule(shootingId: Int!): Schedule!
-  removeBookmark(shootingId: Int!): Bookmark!
-  removeSchedule(scheduleId: Int!): Schedule!
-  signInPhoneNumber(password: String!, phoneNumber: String!): AuthPayload!
-  signUp(user: UserCreateInput): User!
+  addBookmark(shootingId: Int!): Bookmark
+  addSchedule(shootingId: Int!): Schedule
+  adminAddShooting(shooting: AddShootingInput): Shooting
+  adminStepUpShooting(shootingId: Int!): Shooting
+  adminUpdateTypeSchedules(scheduleInput: UpdateScheduleTypeInput): Schedule
+  removeBookmark(shootingId: Int!): Bookmark
+  removeSchedule(scheduleId: Int!): Schedule
+  signInPhoneNumber(password: String!, phoneNumber: String!): AuthPayload
+  signUp(user: UserCreateInput): User
 }
 
 """
@@ -70,6 +108,34 @@ enum Profile_authType {
 }
 
 type Query {
+  adminSchedules(
+    """Returns the elements in the list that come after the specified cursor"""
+    after: String
+
+    """Returns the elements in the list that come before the specified cursor"""
+    before: String
+
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+    shootingId: Int!
+  ): ScheduleConnection
+  adminShootings(
+    """Returns the elements in the list that come after the specified cursor"""
+    after: String
+
+    """Returns the elements in the list that come before the specified cursor"""
+    before: String
+
+    """Returns the first n elements from the list."""
+    first: Int
+
+    """Returns the last n elements from the list."""
+    last: Int
+    searchShooting: String
+  ): ShootingConnection
   bookmarkShootings(
     """Returns the elements in the list that come after the specified cursor"""
     after: String
@@ -82,7 +148,7 @@ type Query {
 
     """Returns the last n elements from the list."""
     last: Int
-  ): ShootingConnection!
+  ): ShootingConnection
 
   """Fetch current user profile when authenticated."""
   me: User
@@ -98,7 +164,7 @@ type Query {
 
     """Returns the last n elements from the list."""
     last: Int
-  ): ScheduleConnection!
+  ): ScheduleConnection
   selectShooting(shootingId: Int!): Shooting
   shootings(
     """Returns the elements in the list that come after the specified cursor"""
@@ -113,7 +179,7 @@ type Query {
     """Returns the last n elements from the list."""
     last: Int
     searchShooting: SearchShootingInput
-  ): ShootingConnection!
+  ): ShootingConnection
   users(
     """Returns the elements in the list that come after the specified cursor"""
     after: String
@@ -127,14 +193,22 @@ type Query {
     """Returns the last n elements from the list."""
     last: Int
     searchText: String
-  ): UserConnection!
+  ): UserConnection
 }
 
 type Schedule {
   id: Int!
   shootingId: Int!
-  step: Step!
+  type: Schedule_Type
   userId: Int!
+}
+
+enum Schedule_Type {
+  attending
+  cancel
+  fail
+  pass
+  waiting
 }
 
 type ScheduleConnection {
@@ -154,13 +228,15 @@ type ScheduleEdge {
   cursor: String!
 
   """https://facebook.github.io/relay/graphql/connections.htm#sec-Node"""
-  node: Schedule!
+  node: Schedule
 }
 
+scalar ScheduleType
+
 input SearchShootingInput {
-  endAt: Date
-  startAt: Date
-  title: String
+  endAt: Date!
+  startAt: Date!
+  title: String!
 }
 
 type Shooting {
@@ -168,6 +244,7 @@ type Shooting {
   createdAt: DateTime
   deletedAt: DateTime
   gender: User_gender
+  headCount: Int
   id: Int!
   isDyeing: Boolean
   isGlasses: Boolean
@@ -181,6 +258,7 @@ type Shooting {
   producer: String
   shootingEndAt: DateTime
   shootingStartAt: DateTime
+  step: Step!
   title: String
   updatedAt: DateTime
   wage: Int
@@ -203,10 +281,16 @@ type ShootingEdge {
   cursor: String!
 
   """https://facebook.github.io/relay/graphql/connections.htm#sec-Node"""
-  node: Shooting!
+  node: Shooting
 }
 
 scalar Step
+
+input UpdateScheduleTypeInput {
+  scheduleIds: [Int]!
+  scheduleType: ScheduleType
+  shootingId: Int
+}
 
 type User {
   birthday: DateTime
@@ -265,7 +349,7 @@ type UserEdge {
   cursor: String!
 
   """https://facebook.github.io/relay/graphql/connections.htm#sec-Node"""
-  node: User!
+  node: User
 }
 
 input UserUpdateInput {
