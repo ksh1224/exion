@@ -1,0 +1,33 @@
+// div {
+//   box-sizing: border-box;
+// }
+
+// button {
+//   box-sizing: border-box;
+//   height:60px;
+//   padding: 0px 30px;
+//   outline: 0px;
+//   border:0px;
+//   border-radius: 5px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// p {
+//   padding: 0px;
+//   margin: 0px;
+//   font-family: Arial, Helvetica, sans-serif;
+//   color: #0E1111;
+// }
+
+.body {
+  display: flex;
+  width:400px;
+  height:200px;
+  padding:20px;
+  border:solid 1px #503396;
+  border-radius: 5px;
+  background-color: white;
+}
