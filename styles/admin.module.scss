@@ -1,0 +1,332 @@
+div {
+    box-sizing: border-box;
+}
+
+button {
+    box-sizing: border-box;
+    height:60px;
+    padding: 0px 30px;
+    outline: 0px;
+    border:0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0E1111;
+}
+
+input {
+    border:0;
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+input:disabled {
+    background-color: white;
+}
+
+input::placeholder {
+    color: #D2D2D2;
+}
+
+textarea {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
+    outline: 0;
+}
+
+textarea::placeholder {
+    color: #D2D2D2;
+}
+
+textarea:disabled {
+    background-color: white;
+}
+
+.body {
+    width:1920px;
+    height:1080px;
+    overflow: hidden;
+}
+
+.main {
+    position: absolute;
+    width:1920px;
+    height:1080px;
+    background-color: white;
+    overflow: scroll;
+}
+
+.header {
+    width:100%;
+    height:285px;
+    padding:60px 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.headerContainer {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color:#503396;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.newButton {
+    background-color: #503396;
+}
+
+.newButtonPlusIcon {
+    color:white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.newButtonLabel {
+    color:white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.searchBar {
+    width:800px;
+    height:60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border:solid;
+    border-width:1px;
+    border-color:#DAD8D8;
+    border-radius: 30px;
+    background-color: white;
+}
+.searchInput {
+    width:690px;
+    height:40px;
+    margin-left:30px;
+    border:0;
+    font-size: 14px;
+    color:#0E1111;
+}
+.searchButton {
+    width:40px;
+    height:40px;
+    padding:0px;
+    border-radius: 20px;
+    margin-right:10px;
+    background-color: #503396;
+}
+.searchIcon {
+    width:25px;
+    height:25px;
+    background-color: white;
+    border: 0;
+    outline: 0;
+}
+
+.statusTab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab {
+    font-size:20px;
+    color: #0E1111;
+}
+
+.tabDivider {
+    width:3px;
+    height:20px;
+    background-color: #E0E1E9;
+    margin: 0px 15px;
+}
+
+.content {
+    width:100%;
+    height:795px;
+    padding:0px 115px 60px 115px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:30px;
+    overflow-y: scroll;
+}
+
+.modal {
+    position: absolute;
+    width:1920px;
+    height:1080px;
+    background-color: #70707099;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shootPage {
+    height:960px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.xButton {
+    width:20px;
+    height:20px;
+    background-color: yellow;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: row;
+    margin-top:15px;
+    height:840px;
+}
+
+.shootContent {
+    width:600px;
+    overflow: scroll;
+    height: 100%;
+}
+
+.shootContent::-webkit-scrollbar {
+    display: none;
+}
+
+.shootTitle {
+    width:100%;
+    font-size: 36px; 
+}
+
+.shootTitle::placeholder {
+    font-size: 36px;
+}
+
+.shootProduction {
+    margin-top:10px;
+    width:100%;
+    font-size: 14px; 
+}
+
+.shootProduction::placeholder {
+    font-size: 14px;
+}
+
+.contentHeader {
+    width:100%;
+    border:solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-color: #503396;
+}
+
+.contentHeaderLabel {
+    color: #503396;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top:30px;
+}
+
+.shootDate {
+
+}
+
+.shootInputContainer {
+    margin-top:15px;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.shootInputLabel {
+    font-size: 14px;
+}
+
+.shootInput {
+    font-size: 14px;
+    text-align: end;
+}
+
+.shootRequirements {
+    width:100%;
+    margin-top:15px;
+    font-size: 14px;
+    resize: none;
+}
+
+.shootRequirements::placeholder {
+    font-size: 14px;
+}
+
+.shootDetails {
+    margin-top: 15px;
+    width:100%;
+    height:640px;
+}
+
+.createButton {
+    width:100%;
+    margin-top:30px;
+    background-color: #503396;
+}
+
+.createButtonLabel {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.modalHeaderButton {
+    margin-left:15px;
+    height:45px;
+    width:125px;
+    background-color: #C70F0F;
+}
+
+.modalHeaderButtonLabel {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.modalHeader{
+    display: flex;
+    min-width: 600px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.participationListArea{
+    width: 1020px;
+    background-color: #503396;
+    height:100%;
+    margin-left:30px;
+}
