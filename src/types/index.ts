@@ -13,14 +13,53 @@ export type Scalars = {
   Date: any;
   DateTime: any;
   Gender: any;
+  ScheduleType: any;
   Step: any;
+};
+
+export type AddShootingInput = {
+  content?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['Gender']>;
+  headCount?: Maybe<Scalars['Int']>;
+  isDyeing?: Maybe<Scalars['Boolean']>;
+  isGlasses?: Maybe<Scalars['Boolean']>;
+  isTattoo?: Maybe<Scalars['Boolean']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  maxWeight?: Maybe<Scalars['Int']>;
+  meetingPlace?: Maybe<Scalars['String']>;
+  meetingTime?: Maybe<Scalars['Date']>;
+  minHeight?: Maybe<Scalars['Int']>;
+  minWeight?: Maybe<Scalars['Int']>;
+  producer?: Maybe<Scalars['String']>;
+  shootingEndAt?: Maybe<Scalars['Date']>;
+  shootingStartAt?: Maybe<Scalars['Date']>;
+  title?: Maybe<Scalars['String']>;
+  wage?: Maybe<Scalars['Int']>;
+};
+
+export type Admin = {
+  __typename?: 'Admin';
+  id: Scalars['Int'];
+  password?: Maybe<Scalars['String']>;
+  userName?: Maybe<Scalars['String']>;
 };
 
 
 export type AuthPayload = {
   __typename?: 'AuthPayload';
-  token: Scalars['String'];
-  user: User;
+  token?: Maybe<Scalars['String']>;
+  user?: Maybe<User>;
+};
+
+export type AuthPayloadAdmin = {
+  __typename?: 'AuthPayloadAdmin';
+  admin?: Maybe<Admin>;
+  token?: Maybe<Scalars['String']>;
+};
+
+export type BatchPayload = {
+  __typename?: 'BatchPayload';
+  count?: Maybe<Scalars['Int']>;
 };
 
 export type Bookmark = {
@@ -34,12 +73,16 @@ export type Bookmark = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  addBookmark: Bookmark;
-  addSchedule: Schedule;
-  removeBookmark: Bookmark;
-  removeSchedule: Schedule;
-  signInPhoneNumber: AuthPayload;
-  signUp: User;
+  addBookmark?: Maybe<Bookmark>;
+  addSchedule?: Maybe<Schedule>;
+  adminAddShooting?: Maybe<Shooting>;
+  adminRemoveShooting?: Maybe<Shooting>;
+  adminStepUpShooting?: Maybe<Shooting>;
+  adminUpdateTypeSchedules?: Maybe<Array<Maybe<Schedule>>>;
+  removeBookmark?: Maybe<Bookmark>;
+  removeSchedule?: Maybe<Schedule>;
+  signInPhoneNumber?: Maybe<AuthPayload>;
+  signUp?: Maybe<User>;
 };
 
 
@@ -50,6 +93,26 @@ export type MutationAddBookmarkArgs = {
 
 export type MutationAddScheduleArgs = {
   shootingId: Scalars['Int'];
+};
+
+
+export type MutationAdminAddShootingArgs = {
+  shooting?: Maybe<AddShootingInput>;
+};
+
+
+export type MutationAdminRemoveShootingArgs = {
+  shootingId: Scalars['Int'];
+};
+
+
+export type MutationAdminStepUpShootingArgs = {
+  shootingId: Scalars['Int'];
+};
+
+
+export type MutationAdminUpdateTypeSchedulesArgs = {
+  scheduleInput?: Maybe<UpdateScheduleTypeInput>;
 };
 
 
@@ -101,13 +164,33 @@ export enum Profile_AuthType {
 
 export type Query = {
   __typename?: 'Query';
-  bookmarkShootings: ShootingConnection;
+  adminSchedules?: Maybe<ScheduleConnection>;
+  adminShootings?: Maybe<ShootingConnection>;
+  bookmarkShootings?: Maybe<ShootingConnection>;
   /** Fetch current user profile when authenticated. */
   me?: Maybe<User>;
-  schedules: ScheduleConnection;
+  schedules?: Maybe<ScheduleConnection>;
   selectShooting?: Maybe<Shooting>;
-  shootings: ShootingConnection;
-  users: UserConnection;
+  shootings?: Maybe<ShootingConnection>;
+  users?: Maybe<UserConnection>;
+};
+
+
+export type QueryAdminSchedulesArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  shootingId: Scalars['Int'];
+};
+
+
+export type QueryAdminShootingsArgs = {
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  searchShooting?: Maybe<Scalars['String']>;
 };
 
 
@@ -153,9 +236,19 @@ export type Schedule = {
   __typename?: 'Schedule';
   id: Scalars['Int'];
   shootingId: Scalars['Int'];
-  step: Scalars['Step'];
+  type?: Maybe<Schedule_Type>;
+  user?: Maybe<User>;
   userId: Scalars['Int'];
 };
+
+export enum Schedule_Type {
+  Apply = 'apply',
+  Attending = 'attending',
+  Cancel = 'cancel',
+  Fail = 'fail',
+  Pass = 'pass',
+  Waiting = 'waiting'
+}
 
 export type ScheduleConnection = {
   __typename?: 'ScheduleConnection';
@@ -170,13 +263,14 @@ export type ScheduleEdge = {
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Cursor */
   cursor: Scalars['String'];
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Node */
-  node: Schedule;
+  node?: Maybe<Schedule>;
 };
 
+
 export type SearchShootingInput = {
-  endAt?: Maybe<Scalars['Date']>;
-  startAt?: Maybe<Scalars['Date']>;
-  title?: Maybe<Scalars['String']>;
+  endAt: Scalars['Date'];
+  startAt: Scalars['Date'];
+  title: Scalars['String'];
 };
 
 export type Shooting = {
@@ -185,6 +279,7 @@ export type Shooting = {
   createdAt?: Maybe<Scalars['DateTime']>;
   deletedAt?: Maybe<Scalars['DateTime']>;
   gender?: Maybe<User_Gender>;
+  headCount?: Maybe<Scalars['Int']>;
   id: Scalars['Int'];
   isDyeing?: Maybe<Scalars['Boolean']>;
   isGlasses?: Maybe<Scalars['Boolean']>;
@@ -198,6 +293,7 @@ export type Shooting = {
   producer?: Maybe<Scalars['String']>;
   shootingEndAt?: Maybe<Scalars['DateTime']>;
   shootingStartAt?: Maybe<Scalars['DateTime']>;
+  step: Scalars['Step'];
   title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   wage?: Maybe<Scalars['Int']>;
@@ -216,9 +312,15 @@ export type ShootingEdge = {
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Cursor */
   cursor: Scalars['String'];
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Node */
-  node: Shooting;
+  node?: Maybe<Shooting>;
 };
 
+
+export type UpdateScheduleTypeInput = {
+  scheduleIds: Array<Maybe<Scalars['Int']>>;
+  scheduleType?: Maybe<Scalars['ScheduleType']>;
+  shootingId?: Maybe<Scalars['Int']>;
+};
 
 export type User = {
   __typename?: 'User';
@@ -274,7 +376,7 @@ export type UserEdge = {
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Cursor */
   cursor: Scalars['String'];
   /** https://facebook.github.io/relay/graphql/connections.htm#sec-Node */
-  node: User;
+  node?: Maybe<User>;
 };
 
 export type UserUpdateInput = {

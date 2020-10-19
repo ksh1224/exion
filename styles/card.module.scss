@@ -1,0 +1,121 @@
+.cardWrap {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 26px;
+  border-radius: 7.8px;
+  border: solid 1px #4b3790;
+
+}
+
+.cardStatusWrap {
+  display: flex;
+  width: 350px;
+  height: 27px;
+  border-radius: 4.3px;
+  border: solid 1px #4b3790;
+  margin-bottom: 26px;
+}
+
+.cardStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 25px;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfbfc1;
+}
+
+.cardHeader {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: solid 1px #4b3790;
+}
+
+.cardHeader h1 {
+  margin: 0 0 3px 0;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #070707;
+}
+
+.cardHeader h2 {
+  margin: 0 0 3px 0;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #5b5b5b;
+}
+
+.cardBody {
+  
+}
+
+.cardBody .list {
+  display: flex;
+  padding: 15px 0 0 0;
+}
+
+.cardBody .listIcon {
+  display: flex;
+  width: 20px;
+  margin-right: 11px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBody .listIcon img {
+  height: fit-content;
+  width: fit-content;
+}
+
+.cardBody text {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.cardBotton {
+  margin: 11px 0 0 0;
+  position: relative;
+  top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350.4px;
+  height: 44.6px;
+  border-radius: 4.3px;
+  background-color: #e0e1e9;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #484849;
+}

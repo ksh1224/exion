@@ -1,22 +1,31 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import React, {
-  useContext, useRef, useState,
+  useContext, useEffect, useRef, useState,
 } from 'react';
 import { Button } from '@material-ui/core';
 import useWindowSize from 'src/hooks/useWindowSize';
 import { VisibleContext } from 'src/hooks/useModalVisibleContext';
-import { MAIN, SCHEDULE } from 'src/constant';
+import { MAIN, SCHEDULE, MYPAGE } from 'src/constant';
 import styles from 'styles/header.module.scss';
+import { me } from 'src/store/gql';
+import { useQuery } from '@apollo/client';
+import { Query } from 'src/types';
 import Calendar from './Calendar';
 
 export default function Header() {
+  const {
+    loading, error, data, fetchMore, networkStatus,
+  } = useQuery<Query>(me);
   const inputRef = useRef<HTMLInputElement>();
   const { pathname, push } = useRouter();
   const [startValue, setStartValue] = useState(null);
   const [endValue, setEndValue] = useState(null);
   const { width } = useWindowSize();
   const [visible, setVisible] = useContext(VisibleContext);
+  // console.log('data', data);
+  // console.log('localStorage', typeof window !== 'undefined' && window.localStorage.getItem('token'));
+
   return (
     <div>
       <header>
@@ -93,13 +102,12 @@ export default function Header() {
               </button>
             )}
 
-          <button type="button" className={styles.profile} onClick={() => setVisible({ logIn: true })}>
+          <button type="button" className={styles.profile} onClick={() => (data?.me ? push(MYPAGE) : setVisible({ logIn: true }))}>
             <img src="/images/login.png" alt="" />
-            <text>로그인</text>
+            <text>{data?.me.name || '로그인'}</text>
           </button>
         </div>
       </header>
-
     </div>
   );
 }
