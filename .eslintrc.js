@@ -18,6 +18,7 @@ module.exports = {
     "no-undef": "off",
     "react/jsx-props-no-spreading": "off",
     "max-len": "off",
+    "consistent-return": "off",
     // "class-methods-use-this": "off",
     // "@typescript-eslint/no-unused-vars": ["warn"],
     // "@typescript-eslint/quotes": "off",
@@ -29,7 +30,6 @@ module.exports = {
     // "import/no-cycle": "off",
     // "no-return-await": "off",
     // "no-nested-ternary": "off",
-    // "consistent-return": "off",
     // "prefer-destructuring": "off",
   },
   settings: { 
