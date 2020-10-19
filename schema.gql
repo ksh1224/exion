@@ -62,8 +62,9 @@ type Mutation {
   addBookmark(shootingId: Int!): Bookmark
   addSchedule(shootingId: Int!): Schedule
   adminAddShooting(shooting: AddShootingInput): Shooting
+  adminRemoveShooting(shootingId: Int!): Shooting
   adminStepUpShooting(shootingId: Int!): Shooting
-  adminUpdateTypeSchedules(scheduleInput: UpdateScheduleTypeInput): Schedule
+  adminUpdateTypeSchedules(scheduleInput: UpdateScheduleTypeInput): [Schedule]
   removeBookmark(shootingId: Int!): Bookmark
   removeSchedule(scheduleId: Int!): Schedule
   signInPhoneNumber(password: String!, phoneNumber: String!): AuthPayload
@@ -200,10 +201,12 @@ type Schedule {
   id: Int!
   shootingId: Int!
   type: Schedule_Type
+  user: User
   userId: Int!
 }
 
 enum Schedule_Type {
+  apply
   attending
   cancel
   fail
