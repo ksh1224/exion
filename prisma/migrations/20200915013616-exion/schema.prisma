@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+model Auth {
+  userId  String
+  token   String @unique
+  User    User   @relation(fields: [userId], references: [id])
+
+  @@index([userId], name: "userId")
+}
+
+model User {
+  id           String          @default(cuid()) @id
+  name         String?
+  phoneNumber  String?       @unique
+  password     String?
+  birthday     DateTime?
+  gender       User_gender?
+  height       Int?
+  weight       Int?
+  isGlasses    Boolean?     @default(dbgenerated())
+  isTattoo     Boolean?     @default(dbgenerated())
+  isDyeing     Boolean?     @default(dbgenerated())
+  Auth         Auth[]
+}
+
+enum User_gender {
+  MALE
+  FEMALE
+}

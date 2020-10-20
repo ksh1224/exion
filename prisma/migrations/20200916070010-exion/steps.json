@@ -1,0 +1,29 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "minWeight",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "maxWeight",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Shooting",
+      "field": "minweight"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Shooting",
+      "field": "maxweight"
+    }
+  ]
+}

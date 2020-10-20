@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+model Profile {
+  id                Int                 @default(autoincrement()) @id
+  socialId          String? 
+  authType          Profile_authType? 
+  userId            Int                 @unique
+  User              User                @relation(fields: [userId], references: [id])
+}   
+    
+model User {    
+  id                Int                 @default(autoincrement()) @id
+  phoneNumber       String?             @unique
+  password          String?       
+  name              String?
+  photoURL          String?       
+  photoURL2         String?       
+  birthday          DateTime?       
+  gender            User_gender?        
+  height            Int?        
+  weight            Int?        
+  isGlasses         Boolean?        
+  isTattoo          Boolean?        
+  isDyeing          Boolean?        
+  createdAt         DateTime?           @default(now())
+  updatedAt         DateTime?           @default(now()) @updatedAt
+  deletedAt         DateTime?
+  lastSignedIn      DateTime?
+  profile           Profile?
+}
+
+model Shooting {
+  id                Int                 @default(autoincrement()) @id   
+  title             String?
+  producer          String?
+  shootingStartAt   DateTime?
+  shootingEndAt     DateTime?
+  content           String?  
+  wage              Int?
+  gender            User_gender?        
+  minHeight         Int?        
+  maxHeight         Int?        
+  minWeight         Int?        
+  maxWeight         Int?        
+  isGlasses         Boolean?        
+  isTattoo          Boolean?        
+  isDyeing          Boolean? 
+  createdAt         DateTime?           @default(now())
+  updatedAt         DateTime?           @default(now()) @updatedAt
+  deletedAt         DateTime?
+}
+
+model Schedule {
+  id                Int                 @default(autoincrement()) @id  
+  step              Step
+  shootingId        Int                 
+  userId            Int
+  User              User                @relation(fields: [userId], references: [id])
+  Shooting          Shooting            @relation(fields: [shootingId], references: [id])
+}
+
+model Bookmark {
+  userId            Int                 @id
+  shootingId        Int                 
+  User              User                @relation(fields: [userId], references: [id])
+  Shooting          Shooting            @relation(fields: [shootingId], references: [id])
+}
+
+enum Profile_authType {
+  email
+  facebook
+  google
+  apple
+}
+
+enum User_gender {
+  male
+  female
+}
+
+enum Step {
+  screening 
+  toBeShooting
+  inShooting
+  shootingComplete
+  paymentCompleted
+}

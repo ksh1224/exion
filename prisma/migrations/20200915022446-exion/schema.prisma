@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+enum Gender {
+  male
+  female
+}
+
+enum AuthType {
+  email
+  facebook
+  google
+  apple
+}
+
+model Profile {
+  id                     Int                     @default(autoincrement()) @id
+  socialId               String?
+  authType               AuthType?
+  userId                 String                  @unique
+  User                   User                    @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id           String       @default(cuid()) @id
+  name         String?
+  phoneNumber  String?      @unique
+  password     String?
+  birthday     DateTime?
+  gender       Gender?
+  height       Int?
+  weight       Int?
+  isGlasses    Boolean?     @default(dbgenerated())
+  isTattoo     Boolean?     @default(dbgenerated())
+  isDyeing     Boolean?     @default(dbgenerated())
+  createdAt    DateTime?    @default(now())
+  updatedAt    DateTime?    @default(now()) @updatedAt
+  deletedAt    DateTime?
+
+  profile      Profile?
+}

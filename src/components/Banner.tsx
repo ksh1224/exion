@@ -8,7 +8,7 @@ export default function Banner() {
     <div className={styles.bannerWrap}>
       <span />
       <div className={styles.banner}>
-        <img src="/images/testBanner.png" alt="" />
+        {/* <img src="/images/testBanner.png" alt="" /> */}
         <text>
           영화, 드라마, 광고
           <br />

@@ -1,0 +1,85 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "bookmark",
+      "type": "Bookmark",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "bookmark",
+      "type": "Bookmark",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Bookmark",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Bookmark",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Bookmark",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Bookmark",
+          "field": "userId"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "Bookmark"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "Bookmark"
+        },
+        "directive": "id"
+      },
+      "argument": "",
+      "value": "[userId, shootingId]"
+    }
+  ]
+}

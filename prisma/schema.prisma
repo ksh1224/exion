@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id                Int                 @default(autoincrement()) @id
+  socialId          String? 
+  authType          Profile_authType? 
+  userId            Int                 @unique
+  User              User                @relation(fields: [userId], references: [id])
+}   
+
+model Admin {
+  id                Int                 @default(autoincrement()) @id
+  userName          String?
+  password          String?    
+}
+    
+model User {    
+  id                Int                 @default(autoincrement()) @id
+  phoneNumber       String?             @unique
+  password          String?       
+  name              String?
+  photoURL          String?       
+  photoURL2         String?       
+  birthday          DateTime?       
+  gender            User_gender?        
+  height            Int?        
+  weight            Int?        
+  isGlasses         Boolean?        
+  isTattoo          Boolean?        
+  isDyeing          Boolean?        
+  createdAt         DateTime?           @default(now())
+  updatedAt         DateTime?           @default(now()) @updatedAt
+  deletedAt         DateTime?
+  lastSignedIn      DateTime?
+
+  profile           Profile?
+  bookmark          Bookmark[]
+  schedule          Schedule[]
+}
+
+model Shooting {
+  id                Int                 @default(autoincrement()) @id   
+  title             String?
+  producer          String?
+  shootingStartAt   DateTime?
+  shootingEndAt     DateTime?
+  headCount         Int?
+  content           String?  
+  wage              Int?
+  meetingPlace      String? 
+  meetingTime       DateTime?
+  gender            User_gender?        
+  minHeight         Int?        
+  maxHeight         Int?        
+  minWeight         Int?        
+  maxWeight         Int?        
+  isGlasses         Boolean?        
+  isTattoo          Boolean?        
+  isDyeing          Boolean? 
+  step              Step
+  createdAt         DateTime?           @default(now())
+  updatedAt         DateTime?           @default(now()) @updatedAt
+  deletedAt         DateTime?
+
+  bookmark          Bookmark[]
+  schedule          Schedule[]
+}
+
+model Schedule {
+  id                Int                 @default(autoincrement()) @id
+  shootingId        Int                 
+  userId            Int
+  type              Schedule_Type?
+  User              User                @relation(fields: [userId], references: [id])
+  Shooting          Shooting            @relation(fields: [shootingId], references: [id])
+}
+
+model Bookmark {
+  createdAt              DateTime?               @default(now())
+
+  userId            Int
+  shootingId        Int                 
+  User              User                @relation(fields: [userId], references: [id])
+  Shooting          Shooting            @relation(fields: [shootingId], references: [id])
+  @@id([userId, shootingId])
+}
+
+enum Profile_authType {
+  email
+  facebook
+  google
+  apple
+}
+
+enum User_gender {
+  male
+  female
+}
+
+enum Step {
+  screening 
+  toBeShooting
+  inShooting
+  shootingComplete
+  paymentCompleted
+}
+
+enum Schedule_Type {
+  apply
+  fail
+  waiting
+  pass
+  attending
+  cancel
+}

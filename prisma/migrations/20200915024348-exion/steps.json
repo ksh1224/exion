@@ -1,0 +1,102 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateEnum",
+      "enum": "Profile_authType",
+      "values": [
+        "email",
+        "facebook",
+        "google",
+        "apple"
+      ]
+    },
+    {
+      "tag": "CreateEnum",
+      "enum": "User_gender",
+      "values": [
+        "male",
+        "female"
+      ]
+    },
+    {
+      "tag": "DeleteEnum",
+      "enum": "Gender"
+    },
+    {
+      "tag": "DeleteEnum",
+      "enum": "AuthType"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "User",
+      "field": "id",
+      "type": "Int"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "newValue": "autoincrement()"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "User",
+      "field": "gender",
+      "type": "User_gender"
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "isGlasses"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "isTattoo"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "isDyeing"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Profile",
+      "field": "authType",
+      "type": "Profile_authType"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "Profile",
+      "field": "userId",
+      "type": "Int"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateEnum",
+      "enum": "Schedule_Type",
+      "values": [
+        "fail",
+        "waiting",
+        "pass",
+        "attending",
+        "cancel"
+      ]
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Admin"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Admin",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Admin",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Admin",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Admin",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Admin",
+      "field": "userName",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Admin",
+      "field": "password",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Schedule",
+      "field": "type",
+      "type": "Schedule_Type",
+      "arity": "Optional"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Schedule",
+      "field": "step"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "meetingPlace",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "meetingTime",
+      "type": "DateTime",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Shooting",
+      "field": "step",
+      "type": "Step",
+      "arity": "Required"
+    }
+  ]
+}

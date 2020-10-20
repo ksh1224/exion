@@ -14,6 +14,12 @@ const regexEqual = (x, y) => (
 require('dotenv').config();
 
 module.exports = {
+  async exportPathMap() {
+    const paths = {
+      '/': { page: '/' },
+    };
+    return paths; // <--this was missing previously
+  },
   webpack: (config) => {
     const oneOf = config.module.rules.find(
       (rule) => typeof rule.oneOf === 'object',

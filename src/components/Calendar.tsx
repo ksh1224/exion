@@ -50,7 +50,7 @@ function Calendar({ classes, value, ...rest }: CalendarType) {
         margin="none"
         // inputVariant="outlined"
         id="date-picker-inline-1"
-        // onChange={(value) => { setStartValue(value); setTimeout(() => setStartOpen(false)); }}
+        onChange={() => { }}
         // onClose={() => setTimeout(() => setStartOpen(false))}
         InputProps={{ className: classes.input }}
       />
