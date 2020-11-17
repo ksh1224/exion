@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - './schema.gql'
+  - './server/src/generated/schema.gql'
 generates:
   src/types/index.ts:
     plugins:

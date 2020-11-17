@@ -1,5 +1,5 @@
-import { intArg, queryField, stringArg } from "@nexus/schema";
-import { getUserId } from "../../../utils/auth";
+import { intArg, queryField, stringArg } from '@nexus/schema';
+import { getUserId } from '../../../utils/auth';
 
 export const shootingQueryField = queryField((t) => {
   t.connectionField('shootings', {
@@ -15,6 +15,7 @@ export const shootingQueryField = queryField((t) => {
         id: parseInt(after, 36),
       } : undefined;
       const id = after ? { not: parseInt(after, 36) } : undefined;
+      const userId = getUserId(ctx);
       const shootings = await ctx.prisma.shooting.findMany({
         cursor,
         where: {

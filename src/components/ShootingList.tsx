@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { Query, ShootingConnection } from 'src/types';
+import { Query } from 'src/types';
 import styles from 'styles/shootingList.module.scss';
-import { queryShootings } from 'src/store/gql';
+import { queryShootings } from 'src/store/gql/shooting';
 import Card from './Card';
 
 function dateToText(date:string) {
@@ -45,6 +45,7 @@ export default function ShootingList() {
                   meetingPlace={shooting.meetingPlace}
                   shootingDate={`${dateToText(shooting.shootingStartAt)} - ${dateToText(shooting.shootingEndAt)}`}
                   meetingTime={timeToText(shooting.meetingTime)}
+                  bookmark={shooting.bookmark}
                 />
               </div>
             );

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useQuery, gql, useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import {
   AuthPayload, Mutation, Query, ShootingConnection,
 } from 'src/types';
@@ -8,7 +8,7 @@ import { VisibleContext } from 'src/hooks/useModalVisibleContext';
 import { useRouter } from 'next/router';
 import { SIGNON, MAIN } from 'src/constant';
 import styles from 'styles/logInModal.module.scss';
-import { signInPhoneNumber } from 'src/store/gql';
+import { signInPhoneNumber } from 'src/store/gql/user';
 
 type LogInDataType = {
   phoneNumber?: string

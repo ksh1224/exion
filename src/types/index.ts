@@ -127,8 +127,8 @@ export type MutationRemoveScheduleArgs = {
 
 
 export type MutationSignInPhoneNumberArgs = {
-  password: Scalars['String'];
-  phoneNumber: Scalars['String'];
+  password?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
 };
 
 
@@ -268,13 +268,14 @@ export type ScheduleEdge = {
 
 
 export type SearchShootingInput = {
-  endAt: Scalars['Date'];
-  startAt: Scalars['Date'];
-  title: Scalars['String'];
+  endAt?: Maybe<Scalars['Date']>;
+  startAt?: Maybe<Scalars['Date']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type Shooting = {
   __typename?: 'Shooting';
+  bookmark?: Maybe<Bookmark>;
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   deletedAt?: Maybe<Scalars['DateTime']>;

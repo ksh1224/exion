@@ -8,7 +8,7 @@ import useWindowSize from 'src/hooks/useWindowSize';
 import { VisibleContext } from 'src/hooks/useModalVisibleContext';
 import { MAIN, SCHEDULE, MYPAGE } from 'src/constant';
 import styles from 'styles/header.module.scss';
-import { me } from 'src/store/gql';
+import { me } from 'src/store/gql/user';
 import { useQuery } from '@apollo/client';
 import { Query } from 'src/types';
 import Calendar from './Calendar';

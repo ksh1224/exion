@@ -1,5 +1,5 @@
-import { intArg, queryField, stringArg } from "@nexus/schema";
-import { getUserId } from "../../../utils/auth";
+import { intArg, queryField, stringArg } from '@nexus/schema';
+import { getUserId } from '../../../utils/auth';
 
 export const scheduleQueryField = queryField((t) => {
   t.connectionField('schedules', {
@@ -42,7 +42,7 @@ export const scheduleQueryAdminField = queryField((t) => {
           shootingId,
           id,
           type: {
-            in: shooting?.step === "screening" ? ['apply', 'pass', 'waiting'] : ['pass', "attending", "waiting", "cancel"],
+            in: shooting?.step === 'screening' ? ['apply', 'pass', 'waiting'] : ['pass', 'attending', 'waiting', 'cancel'],
           },
         },
         include: {

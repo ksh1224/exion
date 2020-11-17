@@ -6,7 +6,7 @@ import Header from 'src/components/Header';
 import Input, { SelctType } from 'src/components/Input';
 import { User, UserCreateInput, User_Gender } from 'src/types';
 import { initializeApollo } from 'src/lib/apolloCient';
-import { signUp } from 'src/store/gql';
+import { signUp } from 'src/store/gql/user';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 // import { initializeApollo } from '../lib/apolloCient';

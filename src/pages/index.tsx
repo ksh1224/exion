@@ -4,7 +4,7 @@ import styles from 'styles/Home.module.scss';
 import Layout from 'src/components/Layout';
 import Banner from 'src/components/Banner';
 import ShootingList from 'src/components/ShootingList';
-import { queryShootings } from 'src/store/gql';
+import { queryShootings } from 'src/store/gql/shooting';
 import { initializeApollo } from '../lib/apolloCient';
 
 export default function Home() {
